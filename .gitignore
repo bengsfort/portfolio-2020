@@ -1,0 +1,10 @@
+# dependencies
+node_modules/*
+
+# build
+dist/*
+
+# osx
+.DS_Store
+._*
+.Spotlight-V100

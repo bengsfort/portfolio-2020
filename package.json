@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-2018",
+  "version": "1.0.0",
+  "description": "Matt Bengston Development Portfolio for 2018",
+  "main": "index.js",
+  "author": "Matt Bengston <bengston.matthew@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "watch:sass": "node-sass -w -r ./src/scss/main.scss ./dist/css/styles.css",
+    "build:sass": "node-sass ./src/scss/main.scss ./dist/css/styles.css"
+  },
+  "devDependencies": {
+    "ejs": "^2.6.1",
+    "node-sass": "^4.9.3"
+  }
+}
