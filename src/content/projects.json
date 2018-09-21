@@ -1,6 +1,32 @@
 {
   "projects": [
     {
+      "hidden": true,
+      "title": "AngryBirds 2 AR Ad",
+      "platform": "iOS, Android",
+      "brief": "Unity Ads WebAR Advertisement bringing the AngryBirds 2 world to AR",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Tooling Developer",
+      "tasks": [
+        "Build pipeline and workflow creation",
+        "Asset pipeline creation and runtime asset management",
+        "Project architecture",
+        "Plane detection implementation",
+        "Tutorial hand implementation",
+        "Point system implementation"
+      ],
+      "tech": [
+        "three.js",
+        "rollup.js",
+        "node.js",
+        "Flow"
+      ],
+      "duration": "3 weeks"
+    },
+    {
       "title": "DuckTales Vault Portal AR Ad",
       "platform": "iOS, Android",
       "brief": "First ever Unity Ads WebAR Advertisement allowing the player to explore Scrooge's vault",
@@ -119,10 +145,85 @@
       "duration": "1.5 years"
     },
     {
-      "title": "Office Portal"
+      "title": "Office Portal",
+      "platform": "Web, iOS, Android",
+      "brief": "Mobile app + web dashboard showing personalized messages to users who have been detected as entering the room",
+      "employer": {
+        "name": "ICF Olson",
+        "uri": "http://www.icfolson.com/"
+      },
+      "role": "Full-stack developer",
+      "tasks": [
+        "Create node.js middleman server for managing SNS messages and passing them to subscribed websocket connections",
+        "Create backing AEM components on dashboard",
+        "Create frontend for AEM components on dashboard",
+        "Implement user triangulation lambda",
+        "Authentication view/navigation stack for mobile app",
+        "Founational UI for mobile app"
+      ],
+      "tech": [
+        "Node.js",
+        "Java",
+        "Adobe Experience Manager (AEM)",
+        "AWS (Lambdas, SNS)",
+        "Web sockets",
+        "Ionic Framework",
+        "Angular"
+      ],
+      "duration": "5 weeks"
     },
     {
-      "title": "Food Lion"
+      "title": "NYU Arts & Sciences",
+      "platform": "Web",
+      "brief": "Full rebuild of the New York Arts & Sciences website including interactive calendars and sub-site user authored theming",
+      "employer": {
+        "name": "ICF Olson",
+        "uri": "http://www.icfolson.com/"
+      },
+      "role": "Lead front-end developer",
+      "tasks": [
+        "Front-end build process development & implementation",
+        "Multi-level navigation UI implementation",
+        "Event calendar UI implementation",
+        "Departments list filtering implementation",
+        "Faculty list filtering implementation",
+        "Main page template UI"
+      ],
+      "tech": [
+        "React",
+        "Sass",
+        "Gulp",
+        "Sightly",
+        "Adobe Experience Manager (AEM)"
+      ],
+      "duration": "5 months"
+    },
+    {
+      "title": "Food Lion",
+      "platform": "Web",
+      "brief": "Full-scale AEM 5.6 website including complex custom searching, shopping lists, and user-submittable recipes",
+      "employer": {
+        "name": "ICF Olson",
+        "uri": "http://www.icfolson.com/"
+      },
+      "role": "Front-end developer",
+      "tasks": [
+        "General component creation within custom styleguide",
+        "Recipe search UI & front-end implementation for filtering (Backbone.js)",
+        "Recipe template UI & implementation",
+        "Shopping list UI & front-end implementation (Backbone.js)",
+        "Shopping list search UI",
+        "User authentication UI"
+      ],
+      "tech": [
+        "Backbone.js",
+        "Handlebars",
+        "Less",
+        "Grunt",
+        "jsp",
+        "Adobe Experience Manager (AEM)"
+      ],
+      "duration": "6 months"
     }
   ]
 }
