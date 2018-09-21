@@ -1,0 +1,32 @@
+{
+  "talks": [
+    {
+      "topic": "AR Design/UX Best Practices",
+      "event": "Guest lecturer, Georgia State University",
+      "location": "Atlanta, Georgia, USA"
+    },
+    {
+      "topic": "Making an AR Ad with web technologies (DuckTales post mortem)",
+      "event": "Assembly 2018, ARTtech",
+      "url": "https://www.youtube.com/watch?v=WhJolZ-O1-c&list=PLJO4AtxKJiFMrrp5zSS8MTHlgjV_OghpH",
+      "location": "Helsinki, Finland"
+    },
+    {
+      "topic": "Technical Best Practices for AR",
+      "event": "Helsinki Unity User Group May 2018",
+      "location": "Helsinki, Finland"
+    },
+    {
+      "topic": "Creating AR Experiences with Javascript",
+      "event": "HelsinkiJS May 2018",
+      "url": "https://youtu.be/chDA58AZFcM?t=1h5m56s",
+      "location": "Helsinki, Finland"
+    },
+    {
+      "topic": "Using AWS Lambdas with Adobe Experience Manager (AEM)",
+      "event": "Circuit 2016",
+      "url": "http://www.circuitdevcon.com/en/session-videos/iot-connected-world.html",
+      "location": "Chicago, Illinois, USA"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "projects": [
+    {
+      "title": "DuckTales Vault Portal AR Ad",
+      "platform": "iOS, Android",
+      "brief": "First ever Unity Ads WebAR Advertisement allowing the player to explore Scrooge's vault",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Lead developer",
+      "tasks": [
+        "Build pipeline and workflow creation",
+        "Asset pipeline creation and runtime asset management",
+        "Project architecture",
+        "Start and end card implementation",
+        "Interactive characters implementation"
+      ],
+      "tech": [
+        "three.js",
+        "Flow",
+        "rollup.js",
+        "node.js"
+      ],
+      "duration": "6 weeks"
+    },
+    {
+      "title": "WebVision Prototype",
+      "platform": "iOS",
+      "brief": "Prototype implementation exposing/controlling Apple's Vision framework to a web view",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Full-stack developer",
+      "tasks": [
+        "Design and implement specification",
+        "Native implementation",
+        "Make test creative validating concept",
+        "Performance validation"
+      ],
+      "tech": [
+        "Objective-C",
+        "three.js"
+      ],
+      "duration": "1 month"
+    },
+    {
+      "title": "Unity Ads Showcase App",
+      "platform": "iOS, Android",
+      "brief": "React Native powered app showcasing the best of Unity Ads, Hackweek project",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Full-stack developer",
+      "tasks": [
+        "Implementation of initial UI block-out",
+        "Created module for controlling the Unity Ads SDK via React Native",
+        "Build + Deployment process"
+      ],
+      "tech": [
+        "React Native",
+        "Objective-C",
+        "Java"
+      ],
+      "duration": "1 week"
+    },
+    {
+      "title": "Unity AR Ads Tech",
+      "platform": "iOS, Web",
+      "brief": "Native + JS bridge + JS runtime of WebVR 1.1-WebAR spec, enabling creation of first fully portable AR ad units",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Full-stack developer, lead front-end developer",
+      "tasks": [
+        "Assist in implementation of native side of WebAR bridge",
+        "Performance testing for concept validation",
+        "Permissions API UX implementation",
+        "Lead for all technical documentation regarding implementation and performance",
+        "Created webAR experience runtime, build and asset pipelines and architecture"
+      ],
+      "tech": [
+        "Objective-C",
+        "TypeScript",
+        "Flow",
+        "three.js",
+        "node.js"
+      ],
+      "duration": "4 months"
+    },
+    {
+      "title": "Unity Social",
+      "platform": "iOS, Android",
+      "brief": "React Native powered social network/multiplayer game overlay",
+      "employer": {
+        "name": "Unity Technologies",
+        "uri": "https://unity3d.com"
+      },
+      "role": "Front-end developer",
+      "tasks": [
+        "Foundational UI components development",
+        "Visual polish",
+        "Challenge feature UI",
+        "Tournaments UI",
+        "Play Now view UI",
+        "Modals UI",
+        "Challenge Overlay implementation"
+      ],
+      "tech": [
+        "React Native",
+        "Node.js",
+        "C#",
+        "Objective-C",
+        "Go"
+      ],
+      "duration": "1.5 years"
+    },
+    {
+      "title": "Office Portal"
+    },
+    {
+      "title": "Food Lion"
+    }
+  ]
+}
