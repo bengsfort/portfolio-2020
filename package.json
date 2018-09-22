@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "watch:sass": "node-sass -w -r ./src/scss/main.scss ./dist/css/styles.css",
     "build:sass": "node-sass ./src/scss/main.scss ./dist/css/styles.css"
   },
   "devDependencies": {
+    "bluebird": "^3.5.2",
     "ejs": "^2.6.1",
     "node-sass": "^4.9.3"
   }
