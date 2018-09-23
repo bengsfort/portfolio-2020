@@ -67,6 +67,9 @@ const main = async () => {
     await _fs.writeFileAsync(`${BUILD_DIR}/index.html`, str, 'utf8')
       .then(() => console.log('File successfully written at', `${BUILD_DIR}/index.html`))
       .catch(e => console.error('ERROR:', e));
+    await _fs.writeFileAsync(`${SRC_DIR}/.content.json`, JSON.stringify(data, null, 2), 'utf8')
+      .then(() => console.log(`Exported data to`, `${SRC_DIR}/.content.json`))
+      .catch(e => console.error('ERROR:', e));
   });
 };
 

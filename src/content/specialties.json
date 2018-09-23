@@ -1,0 +1,20 @@
+{
+	"specialties": [
+		{
+			"label": "Full stack development",
+			"icon": "devices"
+		},
+		{
+			"label": "Tooling & environment development",
+			"icon": "build"
+		},
+		{
+			"label": "Augmented reality & webXR",
+			"icon": "phone_iphone"
+		},
+		{
+			"label": "Game development",
+			"icon": "videogame_asset"
+		}
+	]
+}

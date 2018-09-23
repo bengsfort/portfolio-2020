@@ -37,5 +37,5 @@ start-dev:
 	parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 8080" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
-		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' -t build-templates" \
+		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' '$(SOURCE_DIR)/content/*.json' -t build-templates" \
 		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png"

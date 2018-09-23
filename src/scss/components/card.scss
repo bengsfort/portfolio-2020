@@ -7,14 +7,19 @@
 	border-radius: 100%;
 }
 
+$card-border-radius: 0.5rem;
+$icon-block-size: 32px; // be consistent with material sizing
+
 .intro-card {
 	width: 100%;
 	max-width: 480px;
 	margin: 0 auto;
 	padding: 1rem;
 	background: #fff;
-	border-radius: 0.225rem;
-	box-shadow: rgba(0, 0, 0, 0.045) 0px 4px 12px 4px;
+	border-radius: $card-border-radius;
+	border-bottom-left-radius: $card-border-radius + 0.05;
+	border-bottom-right-radius: $card-border-radius + 0.05;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 12px 4px;
 
 	.card-header {
 		display: flex;
@@ -33,5 +38,52 @@
 	.card-avatar {
 		@include make-circle(150px);
 		z-index: 5;
+	}
+
+	.card-title {
+		margin-top: 0.5em;
+		font-size: 2rem;
+		font-weight: 300;
+	}
+
+	.lead {
+		font-size: 1.15rem;
+		font-weight: 500;
+	}
+
+	.card-body {
+		padding: 1.5rem 2rem;
+		margin: 0 -1rem -1rem;
+		border-bottom-left-radius: $card-border-radius;
+		border-bottom-right-radius: $card-border-radius;
+		background: $blue;
+		color: $off-white;
+	}
+
+	.specialties {
+		padding: 0;
+		margin-bottom: 0;
+		list-style: none;
+	}
+
+	.specialty {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 1rem;
+		font-size: 1.15rem;
+		font-weight: 300;
+	}
+
+	.specialty-icon {
+		width: $icon-block-size;
+		height: $icon-block-size;
+		margin-right: 1rem;
+		border-radius: $icon-block-size;
+		text-align: center;
+		line-height: $icon-block-size;
+		color: $blue;
+		background: $off-white;
 	}
 }

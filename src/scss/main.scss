@@ -1,12 +1,19 @@
 // Main SCSS File
 
-@import "../third_party/bootstrap/scss/bootstrap-reboot.scss";
-@import "../third_party/bootstrap/scss/bootstrap-grid.scss";
+@import "../third_party/bootstrap/scss/bootstrap-reboot";
+@import "../third_party/bootstrap/scss/bootstrap-grid";
+@import "../third_party/bootstrap/scss/type";
 
 $blue: #1976D2;
+$off-white: #f8f8f8;
 
 // Components
-@import "./components/card.scss";
+@import "./components/card";
+
+body {
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
 
 .content-section {
 	@extend .container-fluid;
@@ -14,5 +21,7 @@ $blue: #1976D2;
 }
 
 #intro {
-	background: #f8f8f8;
+	padding: 7rem 1rem;
+	background: url("../assets/intro_background@0\,75x.png");
+	background-size: cover;
 }

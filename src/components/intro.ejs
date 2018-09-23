@@ -5,14 +5,16 @@
         <img src="assets/avatar.png" class="card-avatar" />
       </div>
       <h1 class="card-title">Matt Bengston</h1>
+      <p class="lead">Software Developer specializing in</p>
     </div>
     <div class="card-body">
-      <p class="lead">Software Developer specializing in</p>
       <ul class="specialties">
-        <li>Full stack development</li>
-        <li>Tooling & environment development</li>
-        <li>Augmented reality & WebXR</li>
-        <li>Rapid prototyping</li>
+        <% specialties.forEach(function(specialty) { %>
+          <li class="specialty">
+            <i class="specialty-icon material-icons"><%- specialty.icon %></i>
+            <%= specialty.label %>
+          </li>
+        <% }); %>
       </ul>
     </div>
   </div>
