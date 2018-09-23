@@ -12,6 +12,10 @@
   "devDependencies": {
     "bluebird": "^3.5.2",
     "ejs": "^2.6.1",
+    "imagemin": "^6.0.0",
+    "imagemin-pngcrush": "^5.1.0",
+    "imagemin-pngquant": "^6.0.0",
     "node-sass": "^4.9.3"
-  }
+  },
+  "dependencies": {}
 }
