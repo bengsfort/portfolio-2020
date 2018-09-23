@@ -1,0 +1,14 @@
+<section id="contact">
+	<h2>Get in touch</h2>
+	<div class="contact-email">
+		via <a href="mailto:<%- contact.email %>">email</a>
+	</div>
+	<div class="contact-social">
+		or around the web
+		<ul>
+		<% contact.social.forEach(function(network) { %>
+			<li><%= network.site %>: <a href="<%- network.url %>"><%= network.name %></a></li>
+		<% }); %>
+		</ul>
+	</div>
+</section>

@@ -1,0 +1,27 @@
+{
+	"contact": {
+		"email": "bengston.matthew@gmail.com",
+		"social": [
+			{
+				"site": "Twitter",
+				"name": "@bengsfort",
+				"url": "https://twitter.com/bengsfort"
+			},
+			{
+				"site": "Github",
+				"name": "@bengsfort",
+				"url": "https://github.com/bengsfort"
+			},
+			{
+				"site": "LinkedIn",
+				"name": "Matt Bengston",
+				"url": "https://www.linkedin.com/in/mattbengston/"
+			},
+			{
+				"site": "Facebook",
+				"name": "Matt Bengston",
+				"url": "https://www.facebook.com/bengsfort"
+			}
+		]
+	}
+}
