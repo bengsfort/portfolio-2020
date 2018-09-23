@@ -23,14 +23,18 @@ optimize-png:
 
 .PHONY: build
 build:
-	parallel --ungroup --tty --jobs 0 ::: \
+	parallel --jobs 0 ::: \
 		"make build-styles" \
 		"make build-templates" \
-		"make optimize-png" && cp -R ./$(build) ./$(DEPLOY_DIR)
+		"make optimize-png"
+
+.PHONY: deploy
+deploy:
+	make build && cp -R ./$(BUILD_DIR)/* ./$(DEPLOY_DIR) && echo "Copied files to $(DEPLOY_DIR)."
 
 .PHONY: start-dev
 start-dev:
-	parallel --ungroup --tty --jobs 0 ::: \
+	parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 8080" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' -t build-templates" \
