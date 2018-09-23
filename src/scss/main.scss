@@ -2,3 +2,17 @@
 
 @import "../third_party/bootstrap/scss/bootstrap-reboot.scss";
 @import "../third_party/bootstrap/scss/bootstrap-grid.scss";
+
+$blue: #1976D2;
+
+// Components
+@import "./components/card.scss";
+
+.content-section {
+	@extend .container-fluid;
+	padding: 4rem 1rem;
+}
+
+#intro {
+	background: #f8f8f8;
+}

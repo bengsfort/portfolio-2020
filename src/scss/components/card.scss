@@ -1,0 +1,37 @@
+// Card component
+
+@mixin make-circle($size) {
+	position: relative;
+	width: $size;
+	height: $size;
+	border-radius: 100%;
+}
+
+.intro-card {
+	width: 100%;
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 1rem;
+	background: #fff;
+	border-radius: 0.225rem;
+	box-shadow: rgba(0, 0, 0, 0.045) 0px 4px 12px 4px;
+
+	.card-header {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.card-avatar-wrapper {
+		@include make-circle(150px);
+		margin-top: -75px;
+		box-shadow: inset rgba(0, 0, 0, 0.2) 0px 0px 0px 2px;
+		z-index: 10;
+	}
+
+	.card-avatar {
+		@include make-circle(150px);
+		z-index: 5;
+	}
+}
