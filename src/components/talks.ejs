@@ -1,0 +1,16 @@
+<section id="talks">
+	<h2>Talks</h2>
+	<ul>
+		<% talks.forEach(function(talk) { %>
+			<li class="talk-item">
+				<div class="talk-topic">
+					<strong><%= talk.event %>:</strong> <%= talk.topic %>
+				</div>
+				<span class="talk-location"><%= talk.location %></span>
+				<% if (talk.url) { %>
+					<a href="<%- talk.link %>" class="talk-link">Video</a>
+				<% } %>
+			</li>
+		<% }); %>
+	</ul>
+</section>

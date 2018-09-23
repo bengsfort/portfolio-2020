@@ -42,7 +42,7 @@ const readFilesInDir = async (dir, modifier = NOOP, ext = '') => {
       files = files.filter(file => path.extname(file) === ext);
     }
 
-    const data = await files.map(async file => readFile(path.join(dir, file), modifier));
+    const data = await Promise.all(files.map(file => readFile(path.join(dir, file), modifier)));
     return data.filter(result => result !== {});
   } catch (e) {
     console.error(`There was an error reading the files in ${dir}:`, e);
@@ -54,7 +54,7 @@ const readFilesInDir = async (dir, modifier = NOOP, ext = '') => {
 const buildContent = async () => {
   try {
     const files = await readFilesInDir(CONTENT_DIR, content => JSON.parse(content), '.json');
-    return files.reduce((res, curr) => ({ ...res, ...curr.content }), {});
+    return files.reduce((res, curr) => ({ ...res, ...curr.template }), {});
   } catch (e) {
     console.error(`There was an error building content.`, e);
     process.exit(); // There is nothing we can do at this point.
@@ -62,14 +62,12 @@ const buildContent = async () => {
 };
 
 const main = async () => {
-  const content = await buildContent();
-  const mainTemplate = await readFile(`${SRC_DIR}/index.ejs`, content => 
-    ejs.renderFile(`${SRC_DIR}/index.ejs`, content, (err, str) => {
-      _fs.writeFileAsync(`${BUILD_DIR}/index.html`, str, 'utf8')
-        .then(() => console.log('File successfully written at', `${BUILD_DIR}/index.html`))
-        .catch(e => console.error('ERROR:', e));
-    })
-  );
+  const data = await buildContent();
+  await ejs.renderFile(`${SRC_DIR}/index.ejs`, data, async (err, str) => {
+    await _fs.writeFileAsync(`${BUILD_DIR}/index.html`, str, 'utf8')
+      .then(() => console.log('File successfully written at', `${BUILD_DIR}/index.html`))
+      .catch(e => console.error('ERROR:', e));
+  });
 };
 
 main();
