@@ -3,6 +3,7 @@ node_modules/*
 
 # build
 dist/*
+src/.content.json
 
 # osx
 .DS_Store
