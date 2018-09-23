@@ -16,6 +16,12 @@ build-templates:
 build-styles:
 	npm run build:sass
 
+.PHONY: build
+build:
+	parallel --ungroup --tty --jobs 0 ::: \
+		"make build-styles" \
+		"make build-templates" && cp -R ./dist ./docs
+
 .PHONY: start-server
 start-server:
 	parallel --ungroup --tty --jobs 0 ::: \
