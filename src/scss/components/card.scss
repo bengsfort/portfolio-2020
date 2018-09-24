@@ -52,18 +52,32 @@ $icon-block-size: 32px; // be consistent with material sizing
 	}
 
 	.card-body {
+		position: relative;
 		padding: 1.5rem 2rem;
 		margin: 0 -1rem -1rem;
 		border-bottom-left-radius: $card-border-radius;
 		border-bottom-right-radius: $card-border-radius;
 		background: $blue;
 		color: $off-white;
+
+		&:before {
+			@include gradient-y(rgba(0,0,0,0.1), rgba(0,0,0,0));
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1rem;
+			z-index: 5;
+		}
 	}
 
 	.specialties {
+		position: relative;
 		padding: 0;
 		margin-bottom: 0;
 		list-style: none;
+		z-index: 10;
 	}
 
 	.specialty {
