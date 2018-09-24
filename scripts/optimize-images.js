@@ -2,6 +2,7 @@ const imagemin = require('imagemin');
 const pngquant = require('imagemin-pngquant');
 const pngcrush = require('imagemin-pngcrush');
 
+console.log('Optimizing images...');
 imagemin(['src/assets/*.png'], 'dist/assets', {
   use: [
     pngquant({
