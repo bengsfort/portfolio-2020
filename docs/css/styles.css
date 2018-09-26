@@ -1514,16 +1514,29 @@ mark,
     font-size: 1.15rem;
     font-weight: 500; }
   .intro-card .card-body {
+    position: relative;
     padding: 1.5rem 2rem;
     margin: 0 -1rem -1rem;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     background: #1976D2;
     color: #f8f8f8; }
+    .intro-card .card-body:before {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+      background-repeat: repeat-x;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1rem;
+      z-index: 5; }
   .intro-card .specialties {
+    position: relative;
     padding: 0;
     margin-bottom: 0;
-    list-style: none; }
+    list-style: none;
+    z-index: 10; }
   .intro-card .specialty {
     display: flex;
     flex-direction: row;
@@ -1533,6 +1546,7 @@ mark,
     font-size: 1.15rem;
     font-weight: 300; }
   .intro-card .specialty-icon {
+    flex-shrink: 0;
     width: 32px;
     height: 32px;
     margin-right: 1rem;
