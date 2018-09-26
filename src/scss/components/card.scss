@@ -91,6 +91,7 @@ $icon-block-size: 32px; // be consistent with material sizing
 	}
 
 	.specialty-icon {
+		flex-shrink: 0;
 		width: $icon-block-size;
 		height: $icon-block-size;
 		margin-right: 1rem;

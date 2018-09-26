@@ -5,12 +5,12 @@
 			"icon": "devices"
 		},
 		{
-			"label": "Tooling & environment development",
-			"icon": "build"
-		},
-		{
 			"label": "Augmented reality & webXR",
 			"icon": "phone_iphone"
+		},
+		{
+			"label": "Tooling development",
+			"icon": "build"
 		},
 		{
 			"label": "Game development",
