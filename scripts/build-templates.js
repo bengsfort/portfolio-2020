@@ -50,11 +50,42 @@ const readFilesInDir = async (dir, modifier = NOOP, ext = '') => {
   }
 };
 
+const removeHiddenProjects = (data) => {
+  const { projects } = data;
+  const filteredProjects = projects.filter(project => !project.hidden);
+  return Object.assign({}, data, { projects: filteredProjects });
+};
+
+// Iterate through the data and get all of the project types
+const getWithProjectFilters = (data) => {
+  const { projects } = data;
+  const filters = ['All'];
+  // Iterate through the projects to build the filter list
+  projects.map(project => {
+    if (!project.type) {
+      return;
+    }
+    // Split the filters by the | character
+    const split = project.type.split('|');
+    // Iterate through each filter to see if it already exists in the list
+    split.map(filter => {
+      const exists = filters.some(existing => filter === existing);
+      if (!exists) {
+        filters.push(filter);
+      }
+    });
+  });
+
+  return Object.assign({}, data, { filters });
+};
+
 // Builds a object filled with the json data inside of the `src/content` directory
 const buildContent = async () => {
   try {
     const files = await readFilesInDir(CONTENT_DIR, content => JSON.parse(content), '.json');
-    return files.reduce((res, curr) => ({ ...res, ...curr.template }), {});
+    const data = files.reduce((res, curr) => ({ ...res, ...curr.template }), {});
+    const filtered = removeHiddenProjects(data);
+    return getWithProjectFilters(filtered);
   } catch (e) {
     console.error(`There was an error building content.`, e);
     process.exit(); // There is nothing we can do at this point.

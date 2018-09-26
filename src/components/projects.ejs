@@ -1,8 +1,12 @@
 <section id="projects">
-	<h2>Projects</h2>
-	<% projects.forEach(function(project) { %>
-		<% if (!project.hidden) { %>
-			<%- include('project-item.ejs', { project: project }) %>
-		<% } %>
-	<% }); %>
+	<h2>Portfolio</h2>
+  <div class="projects-filter-list">
+    <i class="material-icons filters-label-icon">styles</i>
+    <% filters.forEach(function(filter) { %>
+      <a href="#" class="project-filter" data-filter="<%- filter %>"><%- filter %></a>
+    <% }); %>
+  </div>
+	<% projects.forEach(function(project) {
+		include('project-item.ejs', { project: project });
+	}); %>
 </section>

@@ -2,6 +2,7 @@
   "projects": [
     {
       "hidden": true,
+      "type": "Games",
       "title": "AngryBirds 2 AR Ad",
       "platform": "iOS, Android",
       "brief": "Unity Ads WebAR Advertisement bringing the AngryBirds 2 world to AR",
@@ -27,6 +28,7 @@
       "duration": "3 weeks"
     },
     {
+      "type": "Games",
       "title": "DuckTales Vault Portal AR Ad",
       "platform": "iOS, Android",
       "brief": "First ever Unity Ads WebAR Advertisement allowing the player to explore Scrooge's vault",
@@ -51,6 +53,7 @@
       "duration": "6 weeks"
     },
     {
+      "type": "Apps",
       "title": "WebVision Prototype",
       "platform": "iOS",
       "brief": "Prototype implementation exposing/controlling Apple's Vision framework to a web view",
@@ -72,6 +75,7 @@
       "duration": "1 month"
     },
     {
+      "type": "Apps",
       "title": "Unity Ads Showcase App",
       "platform": "iOS, Android",
       "brief": "React Native powered app showcasing the best of Unity Ads, Hackweek project",
@@ -93,6 +97,7 @@
       "duration": "1 week"
     },
     {
+      "type": "Apps",
       "title": "Unity AR Ads Tech",
       "platform": "iOS, Web",
       "brief": "Native + JS bridge + JS runtime of WebVR 1.1-WebAR spec, enabling creation of first fully portable AR ad units",
@@ -131,6 +136,7 @@
       ]
     },
     {
+      "type": "Apps",
       "title": "Project X",
       "platform": "iOS, Android",
       "brief": "React Native powered social network/multiplayer game overlay",
@@ -156,6 +162,7 @@
       "duration": "1.5 years"
     },
     {
+      "type": "Apps|Web",
       "title": "Office Portal",
       "platform": "Web, iOS, Android",
       "brief": "Mobile app + web dashboard showing personalized messages to users who have been detected as entering the room",
@@ -184,6 +191,7 @@
       "duration": "5 weeks"
     },
     {
+      "type": "Web",
       "title": "NYU Arts & Sciences",
       "platform": "Web",
       "brief": "Full rebuild of the New York Arts & Sciences website including interactive calendars and sub-site user authored theming",
@@ -210,6 +218,7 @@
       "duration": "5 months"
     },
     {
+      "type": "Web",
       "title": "Food Lion",
       "platform": "Web",
       "brief": "Full-scale AEM 5.6 website including complex custom searching, shopping lists, and user-submittable recipes",
