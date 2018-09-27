@@ -10,6 +10,7 @@ $off-white: #f8f8f8;
 
 // Components
 @import "./components/card";
+@import "./components/project-filters";
 
 body {
 	font-family: 'Roboto', sans-serif;
@@ -19,6 +20,11 @@ body {
 .content-section {
 	@extend .container-fluid;
 	padding: 4rem 1rem;
+
+  .section-header {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 #intro {
@@ -26,3 +32,8 @@ body {
 	background: url("../assets/intro_background@0\,75x.png");
 	background-size: cover;
 }
+
+#projects {
+  background: #f8f8f8;
+}
+

@@ -1,11 +1,15 @@
-<section id="projects">
-	<h2>Portfolio</h2>
-  <div class="projects-filter-list">
-    <i class="material-icons filters-label-icon">styles</i>
-    <% filters.forEach(function(filter) { %>
-      <a href="#" class="project-filter" data-filter="<%- filter %>"><%- filter %></a>
-    <% }); %>
-  </div>
+<section id="projects" class="content-section">
+  <header class="section-header">
+  	<h2>Portfolio</h2>
+    <div class="projects-filter-list">
+      <i class="material-icons filters-label-icon">styles</i>
+      <% filters.forEach(function(filter, i) { %>
+        <div class="list-item">
+          <a href="#" class="project-filter <% if (i === 0) { %>active<% } %>" data-filter="<%- filter %>"><%- filter %></a>
+        </div>
+      <% }); %>
+    </div>
+  </header>
 	<% projects.forEach(function(project) {
 		include('project-item.ejs', { project: project });
 	}); %>
