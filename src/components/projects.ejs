@@ -10,7 +10,9 @@
       <% }); %>
     </div>
   </header>
-	<% projects.forEach(function(project) {
-		include('project-item.ejs', { project: project });
-	}); %>
+  <div class="project-previews">
+  	<% projects.forEach(function(project) { %>
+  		<%- include('./project-item.ejs', { project: project }) %>
+  	<% }); %>
+  </div>
 </section>
