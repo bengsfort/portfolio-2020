@@ -10,6 +10,7 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Tooling Developer",
       "tasks": [
         "Build pipeline and workflow creation",
@@ -36,6 +37,7 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Lead developer",
       "tasks": [
         "Build pipeline and workflow creation",
@@ -61,6 +63,7 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/webvision_thumbnail.png",
       "role": "Full-stack developer",
       "tasks": [
         "Design and implement specification",
@@ -83,6 +86,7 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Full-stack developer",
       "tasks": [
         "Implementation of initial UI block-out",
@@ -105,6 +109,7 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Full-stack developer, lead front-end developer",
       "tasks": [
         "Assist in implementation of native side of WebAR bridge",
@@ -137,13 +142,14 @@
     },
     {
       "type": "Apps",
-      "title": "Project X",
+      "title": "Unity Social",
       "platform": "iOS, Android",
-      "brief": "React Native powered social network/multiplayer game overlay",
+      "brief": "React Native powered social network/multiplayer game overlay. Information/screenshots available upon request",
       "employer": {
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
+      "thumbnail": "assets/social_thumbnail.png",
       "role": "Front-end developer",
       "tasks": [
         "Foundational UI components development",
@@ -170,6 +176,7 @@
         "name": "ICF Olson",
         "uri": "http://www.icfolson.com/"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Full-stack developer",
       "tasks": [
         "Create node.js middleman server for managing SNS messages and passing them to subscribed websocket connections",
@@ -199,6 +206,7 @@
         "name": "ICF Olson",
         "uri": "http://www.icfolson.com/"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Lead front-end developer",
       "tasks": [
         "Front-end build process development & implementation",
@@ -226,6 +234,7 @@
         "name": "ICF Olson",
         "uri": "http://www.icfolson.com/"
       },
+      "thumbnail": "assets/adsshowcase_thumbnail.png",
       "role": "Front-end developer",
       "tasks": [
         "General component creation within custom styleguide",

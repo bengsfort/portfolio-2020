@@ -1477,6 +1477,14 @@ mark,
   .blockquote-footer::before {
     content: "\2014 \00A0"; }
 
+.project-preview .project-preview-icon {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 .intro-card {
   width: 100%;
   max-width: 480px;
@@ -1599,6 +1607,86 @@ mark,
       height: 0;
       background: #1976D2;
       transition: height 225ms 150ms; }
+
+.project-preview .project-preview-icon, .project-preview .project-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+
+.project-previews {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 54rem;
+  margin: 1.5rem auto; }
+
+.preview-wrapper {
+  display: none;
+  flex-basis: 33%;
+  padding: 1rem;
+  transition: all 325ms; }
+  .preview-wrapper.active {
+    display: block; }
+
+.project-preview {
+  position: relative;
+  display: block;
+  height: 16rem;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 16px;
+  transition: cubic-bezier(0.39, 0, 0.39, 1.47) transform 325ms, box-shadow 325ms; }
+  .project-preview .project-preview-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: ease-out opacity 275ms 150ms, cubic-bezier(0.39, 0, 0.39, 1.47) transform 175ms 150ms; }
+    .project-preview .project-preview-icon i {
+      color: #fff;
+      font-size: 96px;
+      text-shadow: rgba(0, 0, 0, 0.17) 0 2px 16px; }
+  .project-preview .project-background {
+    background-size: cover;
+    transition: opacity 300ms;
+    z-index: 5; }
+  .project-preview .project-gradient {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.76) 100%);
+    background-repeat: repeat-x;
+    transition: all 275ms;
+    z-index: 7; }
+  .project-preview .project-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 0.875rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    z-index: 10; }
+  .project-preview:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; }
+    .project-preview:hover .project-preview-icon {
+      opacity: 1;
+      transform: scale(1); }
+    .project-preview:hover .project-background {
+      opacity: 0.6; }
+    .project-preview:hover .project-gradient {
+      top: 45%; }
 
 body {
   font-family: 'Roboto', sans-serif;

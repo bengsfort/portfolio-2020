@@ -12,6 +12,43 @@ const COMPONENTS_DIR = `${SRC_DIR}/components`;
 const NOOP = (content) => content;
 
 /**
+ * @typedef {Object} Chain
+ * @property {Function<Function>} add
+ *    Add the callback to the chain, the callback receiving a snapshot of the
+ *    current state of the data and returning a reference to the original chain.
+ * @property {Function} commit
+ *    Commits the current snapshot of the data as the final result, returning
+ *    it and thus terminating the chain.
+ */
+
+/**
+ * Allows chaining calls to manipulate a piece of data.
+ * @param {any} value
+ * @return {Chain}
+ */
+const chain = (value) => {
+  let data = value;
+  return {
+    /**
+     * Adds a callback to the chain, modifying the current data snapshot.
+     * @param {Function<any>} cb A callback receiving the current data. Should return the modified data.
+     * @return {Chain} A reference to the current chain.
+     */
+    add(cb) {
+      data = cb(data);
+      return this;
+    },
+
+    /**
+     * Returns the current data snapshot, thus terminating the chain.
+     */
+    commit() {
+      return data;
+    },
+  };
+}
+
+/**
  * @typedef {Object} FileDescription
  * @property {string} file The file name.
  * @property {any} content The content of the file.
@@ -50,6 +87,17 @@ const readFilesInDir = async (dir, modifier = NOOP, ext = '') => {
   }
 };
 
+const addProjectSlugs = (data) => {
+  const { projects } = data;
+  return Object.assign({}, data, {
+    projects: projects.map(project => Object.assign({}, project, {
+      slug: project.title.toLowerCase().trim()
+        .replace(/&/g, '') // remove &'s
+        .replace(/[\s\W-]+/g, '-'), // Replace whitespaces and non-word chars with -
+    })),
+  });
+};
+
 const removeHiddenProjects = (data) => {
   const { projects } = data;
   const filteredProjects = projects.filter(project => !project.hidden);
@@ -84,8 +132,14 @@ const buildContent = async () => {
   try {
     const files = await readFilesInDir(CONTENT_DIR, content => JSON.parse(content), '.json');
     const data = files.reduce((res, curr) => ({ ...res, ...curr.template }), {});
-    const filtered = removeHiddenProjects(data);
-    return getWithProjectFilters(filtered);
+
+    // chain will call each function passed in with a snapshot of the current
+    // state of the data (the result of the previous .add)
+    return chain(data)
+      .add(removeHiddenProjects)
+      .add(getWithProjectFilters)
+      .add(addProjectSlugs)
+      .commit();
   } catch (e) {
     console.error(`There was an error building content.`, e);
     process.exit(); // There is nothing we can do at this point.

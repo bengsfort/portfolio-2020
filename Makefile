@@ -9,6 +9,10 @@ DEPLOY_DIR := docs
 clean:
 	rm -rf $(BUILD_DIR)/* && rm -rf $(DEPLOY_DIR)/*
 
+.PHONY: build-js
+build-js:
+	cp -R $(SOURCE_DIR)/js $(BUILD_DIR)
+
 .PHONY: build-templates
 build-templates:
 	node $(SCRIPTS_DIR)/build-templates.js
@@ -23,10 +27,11 @@ optimize-png:
 
 .PHONY: build
 build:
-	parallel --jobs 0 ::: \
+	parallel --ungroup --jobs 0 ::: \
 		"make build-styles" \
 		"make build-templates" \
-		"make optimize-png"
+		"make optimize-png" \
+		"make build-js"
 
 .PHONY: deploy
 deploy:
@@ -36,6 +41,7 @@ deploy:
 start-dev:
 	parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 3000" \
+		"watchman-make -p '$(SOURCE_DIR)/js/*.js' -t build-js" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' '$(SOURCE_DIR)/content/*.json' -t build-templates" \
 		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png"

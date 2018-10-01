@@ -1,5 +1,8 @@
-<div>
-	<div>
-		<h3 class="project-title"><%= project.title %></h3>
-	</div>
+<div class="preview-wrapper active" data-project-tags="<%- project.type %>">
+  <a class="project-preview" href="#project-<%- project.slug %>">
+    <div class="project-preview-icon"><i class="material-icons">pageview</i></div>
+    <div class="project-title"><%= project.title %></div>
+    <div class="project-gradient"></div>
+  	<div class="project-background" style="background-image:url('<%- project.thumbnail %>')"></div>
+  </a>
 </div>
