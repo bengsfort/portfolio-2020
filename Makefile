@@ -11,7 +11,7 @@ clean:
 
 .PHONY: build-js
 build-js:
-	cp -R $(SOURCE_DIR)/js $(BUILD_DIR)
+	yarn run build:js
 
 .PHONY: build-templates
 build-templates:
@@ -19,7 +19,7 @@ build-templates:
 
 .PHONY: build-styles
 build-styles:
-	npm run build:sass
+	yarn run build:sass
 
 .PHONY: optimize-png
 optimize-png:
@@ -37,11 +37,12 @@ build:
 deploy:
 	make build && cp -R ./$(BUILD_DIR)/* ./$(DEPLOY_DIR) && echo "Copied files to $(DEPLOY_DIR)."
 
+#"watchman-make -p '$(SOURCE_DIR)/js/*.js' -t build-js"
 .PHONY: start-dev
 start-dev:
 	parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 3000" \
-		"watchman-make -p '$(SOURCE_DIR)/js/*.js' -t build-js" \
+		"yarn run watch:js" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' '$(SOURCE_DIR)/content/*.json' -t build-templates" \
 		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png"
