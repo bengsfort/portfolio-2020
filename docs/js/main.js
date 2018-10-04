@@ -49,18 +49,32 @@
   let activeProject = null;
 
   const openProject = (id) => {
-    activeProject.classList.remove(ACTIVE_CLASS);
+    closeProject();
     activeProject = projects[id];
     activeProject.classList.add(ACTIVE_CLASS);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeProject = () => {
+    if (activeProject) {
+      activeProject.classList.remove(ACTIVE_CLASS);
+      activeProject = null;
+      document.body.style.overflow = 'inherit';
+    }
   };
 
   const projectNav = () => {
     const projs = document.getElementsByClassName('project-page');
     const count = projs.length;
-    for (let i = 0, project, slug; i < count; i++) {
+    for (let i = 0, project, slug, closeBtn; i < count; i++) {
       project = projs[i];
       slug = project.id;
       projects[slug] = project;
+      // Find close button
+      closeBtn = project.getElementsByClassName('project-close-btn')[0];
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeProject);
+      }    
     }
   };
 
@@ -103,10 +117,10 @@
     const length = projectNodes.length;
     cacheGridLocations(projectNodes);
     // Iterate over each node, determining it's type and cacheing it
-    for (let i = 0, node, filters; i < length; i++) {
+    for (let i = 0, node, filters, link; i < length; i++) {
       node = projectNodes[i];
-      console.log('children[0]', node.children[0]);
-      node.children[0].addEventListener('click', onClickProject);
+      link = node.children[0];
+      link.addEventListener('click', () => onClickProject(link));
       node.classList.add(ACTIVE_CLASS$1); // Everything visible by default
       filters = node.dataset.projectTags.split('|');
       addProjectToDictionary('All', node);
@@ -114,13 +128,12 @@
     }
   };
 
-  const onClickProject = (ev) => {
-    if (ev.target.className !== 'preview-wrapper') {
-      return;
-    }
 
-    const proj = ev.target;
-    const id = proj.href.slice('#project-'.length);
+  const onClickProject = (proj) => {
+    const href = proj.href;
+    const pathComponents = href.split('/');
+    const path = pathComponents[pathComponents.length - 1];
+    const id = path.slice('#project-'.length);
     openProject(id);
   };
 
