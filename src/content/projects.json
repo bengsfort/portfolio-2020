@@ -184,7 +184,7 @@
         "Create frontend for AEM components on dashboard",
         "Implement user triangulation lambda",
         "Authentication view/navigation stack for mobile app",
-        "Founational UI for mobile app"
+        "Foundational UI for mobile app"
       ],
       "tech": [
         "Node.js",

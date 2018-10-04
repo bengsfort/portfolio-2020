@@ -16,7 +16,7 @@
   	<% }); %>
   </div>
   <% projects.forEach(function(project, i) { %>
-    <div class="project-page active" id="<%= project.slug %>">
+    <div class="project-page" id="<%= project.slug %>">
       <%- include('./project-page.ejs', { project: project }) %>
     </div>
   <% }); %>

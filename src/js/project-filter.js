@@ -35,10 +35,10 @@ const cacheProjects = () => {
   const length = projectNodes.length;
   cacheGridLocations(projectNodes);
   // Iterate over each node, determining it's type and cacheing it
-  for (let i = 0, node, filters; i < length; i++) {
+  for (let i = 0, node, filters, link; i < length; i++) {
     node = projectNodes[i];
-    console.log('children[0]', node.children[0]);
-    node.children[0].addEventListener('click', onClickProject);
+    link = node.children[0];
+    link.addEventListener('click', () => onClickProject(link));
     node.classList.add(ACTIVE_CLASS); // Everything visible by default
     filters = node.dataset.projectTags.split('|');
     addProjectToDictionary('All', node);
@@ -46,13 +46,12 @@ const cacheProjects = () => {
   }
 };
 
-const onClickProject = (ev) => {
-  if (ev.target.className !== 'preview-wrapper') {
-    return;
-  }
 
-  const proj = ev.target;
-  const id = proj.href.slice('#project-'.length);
+const onClickProject = (proj) => {
+  const href = proj.href;
+  const pathComponents = href.split('/');
+  const path = pathComponents[pathComponents.length - 1];
+  const id = path.slice('#project-'.length);
   openProject(id);
 };
 
