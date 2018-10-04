@@ -4,11 +4,15 @@ import {
   cacheGridLocations,
   setGridItemPosition,
 } from './project-grid';
+import {
+  openProject,
+} from './project-nav';
 import { throttle } from './utils';
 
-const RESIZE_THROTTLE = 200;
+const RESIZE_THROTTLE = 100;
 const ACTIVE_CLASS = 'active';
 const DEFAULT_FILTER = 'All';
+
 const dictionary = {};
 let activeFilter;
 
@@ -33,11 +37,23 @@ const cacheProjects = () => {
   // Iterate over each node, determining it's type and cacheing it
   for (let i = 0, node, filters; i < length; i++) {
     node = projectNodes[i];
+    console.log('children[0]', node.children[0]);
+    node.children[0].addEventListener('click', onClickProject);
     node.classList.add(ACTIVE_CLASS); // Everything visible by default
     filters = node.dataset.projectTags.split('|');
     addProjectToDictionary('All', node);
     filters.map(filter => addProjectToDictionary(filter, node));
   }
+};
+
+const onClickProject = (ev) => {
+  if (ev.target.className !== 'preview-wrapper') {
+    return;
+  }
+
+  const proj = ev.target;
+  const id = proj.href.slice('#project-'.length);
+  openProject(id);
 };
 
 // Sets the current active filter

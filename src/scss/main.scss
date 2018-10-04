@@ -21,6 +21,7 @@ $off-white: #f8f8f8;
 @import "./components/card";
 @import "./components/project-filters";
 @import "./components/project-preview";
+@import "./components/project-page.scss";
 
 body {
 	font-family: 'Roboto', sans-serif;
@@ -28,7 +29,8 @@ body {
 }
 
 .content-section {
-	@extend .container-fluid;
+  @extend .container-fluid;
+  position: relative;
   padding: 4rem 1rem;
   transition: all 325ms;
 

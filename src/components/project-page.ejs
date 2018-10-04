@@ -1,30 +1,34 @@
-<section>
+<div class="container">
   <header>
+    <!-- <div class="project-head">Portfolio</div> -->
     <h3 class="project-title"><%= project.title %></h3>
+    <p class="project-role lead"><%= project.role %></p>
     <p class="project-brief lead"><%= project.brief %></p>
   </header>
-  <div class="project-info">
-    <div class="project-meta">
-      <div class="project-platform"><span>Platform:</span> <%= project.platform %></div>
-      <div class="project-employer"><span>Employer:</span> <a href="<%- project.employer.uri %>" target="_blank"><%= project.employer.name %></a></div>
-      <div class="project-platform"><span>Duration:</span> <%= project.duration %></div>
-    </div>
-    <div class="project-role"><span>Role:</span> <%= project.role %></div>
-    <div class="project-tasks">
-      <span>Responsible for:</span>
-      <ul>
-      <% project.tasks.forEach(function(task) { %>
-        <li><%= task %></li>
-      <% }); %>
-      </ul>
-    </div>
-    <div class="project-tech">
-      <span>Tech:</span>
-      <ul>
-      <% project.tech.forEach(function(techItem) { %>
-        <li><%= techItem %></li>
-      <% }); %>
-      </ul>
+  <div class="row">
+    <div class="project-preview col-sm-6"></div>
+    <div class="project-info col-sm-6">
+      <div class="project-meta">
+        <div class="project-platform"><%= project.platform %></div>
+        <div class="project-employer"><span>Built for</span> <a href="<%- project.employer.uri %>" target="_blank"><%= project.employer.name %></a></div>
+        <div class="project-platform"><span>Duration:</span> <%= project.duration %></div>
+      </div>
+      <div class="project-tasks">
+        <span>Responsible for:</span>
+        <ul>
+        <% project.tasks.forEach(function(task) { %>
+          <li><%= task %></li>
+        <% }); %>
+        </ul>
+      </div>
+      <div class="project-tech">
+        <span>Tech:</span>
+        <ul>
+        <% project.tech.forEach(function(techItem) { %>
+          <li><%= techItem %></li>
+        <% }); %>
+        </ul>
+      </div>
     </div>
   </div>
-</section>
+</div>
