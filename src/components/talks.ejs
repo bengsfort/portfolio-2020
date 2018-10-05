@@ -9,7 +9,7 @@
 				<div class="talk-topic"><%= talk.topic %></div>
 				<div class="talk-location"><%= talk.location %></div>
 				<% if (talk.url) { %>
-					<a href="<%- talk.url %>" class="talk-link"><i class="material-icons">link</i></a>
+					<a href="<%- talk.url %>" target="_blank" class="talk-link"><i class="material-icons">link</i></a>
 				<% } %>
 			</li>
 		<% }); %>
