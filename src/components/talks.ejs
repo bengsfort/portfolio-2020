@@ -1,14 +1,15 @@
-<section id="talks">
-	<h2>Talks</h2>
-	<ul>
+<section class="content-section" id="talks">
+	<header class="section-header">
+		<h2>Talks</h2>
+	</header>
+	<ul class="talks-list">
 		<% talks.forEach(function(talk) { %>
 			<li class="talk-item">
-				<div class="talk-topic">
-					<strong><%= talk.event %>:</strong> <%= talk.topic %>
-				</div>
-				<span class="talk-location"><%= talk.location %></span>
+				<div class="talk-event"><%= talk.event %></div>
+				<div class="talk-topic"><%= talk.topic %></div>
+				<div class="talk-location"><%= talk.location %></div>
 				<% if (talk.url) { %>
-					<a href="<%- talk.link %>" class="talk-link">Link</a>
+					<a href="<%- talk.url %>" class="talk-link"><i class="material-icons">link</i></a>
 				<% } %>
 			</li>
 		<% }); %>

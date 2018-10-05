@@ -24,7 +24,7 @@
         "three.js",
         "rollup.js",
         "node.js",
-        "Flow"
+        "Flowtype"
       ],
       "duration": "3 weeks"
     },
@@ -48,7 +48,7 @@
       ],
       "tech": [
         "three.js",
-        "Flow",
+        "Flowtype",
         "rollup.js",
         "node.js"
       ],
@@ -121,7 +121,7 @@
       "tech": [
         "Objective-C",
         "TypeScript",
-        "Flow",
+        "Flowtype",
         "three.js",
         "node.js"
       ],
@@ -163,7 +163,7 @@
         "Node.js",
         "C#",
         "Objective-C",
-        "Go"
+        "Golang"
       ],
       "duration": "1.5 years"
     },

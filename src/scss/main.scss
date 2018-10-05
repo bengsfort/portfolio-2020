@@ -7,6 +7,7 @@
 
 $blue: #1976D2;
 $off-white: #f8f8f8;
+$container-width: 54rem; // 864
 
 %unselectable {
   -webkit-touch-callout: none;
@@ -21,11 +22,16 @@ $off-white: #f8f8f8;
 @import "./components/card";
 @import "./components/project-filters";
 @import "./components/project-preview";
-@import "./components/project-page.scss";
+@import "./components/project-page";
+@import "./components/talks";
 
 body {
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
+}
+
+h2 {
+  font-weight: 300;
 }
 
 .content-section {
@@ -48,9 +54,9 @@ body {
 
 #projects {
   background: #f8f8f8;
-
-  h2 {
-    font-weight: 300;
-  }
 }
 
+#talks {
+  background: $blue;
+  color: $white;
+}
