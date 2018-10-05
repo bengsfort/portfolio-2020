@@ -1,0 +1,64 @@
+// Contact styles
+
+#contact {
+	text-align: center;
+	color: $white;
+	background: #606060;
+}
+
+.contact-email {
+	font-size: 1.875rem;
+	font-weight: 500;
+
+	.email-link {
+		color: #2196F3;
+
+		.symbol {
+			position: relative;
+			&::before {
+				content: "bengston.matthew";
+				display: inline-block;
+				width: 0;
+				opacity: 0;
+				transform: translate(-1.75rem, 0);
+				transition: all 325ms cubic-bezier(0.23, 1, 0.320, 1);
+			}
+
+			&::after {
+				content: "gmail.com";
+				display: inline-block;
+				width: 0;
+				opacity: 0;
+				transform: translate(1.75rem, 0);
+				transition: all 325ms cubic-bezier(0.23, 1, 0.320, 1);
+			}
+		}
+
+		.label {
+			opacity: 1;
+			transition: all 325ms;
+		}
+
+		&:hover {
+			color: $white;
+			text-decoration: none;
+
+			.symbol::before {
+				width: auto;
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+
+			.symbol::after {
+				width: auto;
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+
+			.label {
+				opacity: 0;
+				transition: all 0ms;
+			}
+		}
+	}
+}

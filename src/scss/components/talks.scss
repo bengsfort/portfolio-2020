@@ -18,12 +18,13 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex-basis: 15rem; // 234px
+		flex-basis: 20.375rem; // 256px
 		flex-grow: 1;
 		height: 14rem;
+		padding: 1rem;
+		margin: 0 2rem 2rem;
 		overflow: hidden;
 		text-align: center;
-		margin: 0 2rem 2rem;
 		color: $black;
 		background: $off-white;
 		box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 16px;
