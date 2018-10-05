@@ -3,22 +3,22 @@
 		"email": "bengston.matthew@gmail.com",
 		"social": [
 			{
-				"site": "Twitter",
+				"site": "twitter",
 				"name": "@bengsfort",
 				"url": "https://twitter.com/bengsfort"
 			},
 			{
-				"site": "Github",
+				"site": "github",
 				"name": "@bengsfort",
 				"url": "https://github.com/bengsfort"
 			},
 			{
-				"site": "LinkedIn",
+				"site": "linkedin",
 				"name": "Matt Bengston",
 				"url": "https://www.linkedin.com/in/mattbengston/"
 			},
 			{
-				"site": "Facebook",
+				"site": "facebook",
 				"name": "Matt Bengston",
 				"url": "https://www.facebook.com/bengsfort"
 			}

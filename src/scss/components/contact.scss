@@ -62,3 +62,53 @@
 		}
 	}
 }
+
+.social-lead {
+	@extend h3;
+	font-weight: 300;
+	margin: 2rem 1rem 1rem;
+}
+
+.social-list {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+
+	.social-item {
+		margin: 0 0.5rem;
+		list-style: none;
+
+		svg {
+			width: 48px;
+			height: 48px;
+			fill: $white;
+		}
+	}
+
+	.social-link {
+		display: block;
+		
+		.social-username {
+			display: block;
+			position: absolute;
+			color: $white;
+			opacity: 0;
+			transform: translateY(-1rem);
+			transition: transform 325ms cubic-bezier(0.55, 0.055, 0.675, 0.19),
+						opacity 275ms;
+		}
+
+		&:hover {
+			.social-username {
+				text-decoration: none;
+				opacity: 1;
+				transform: translateY(0.5rem);
+				transition: transform 325ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+							opacity 275ms;
+			}
+		}
+	}
+}
