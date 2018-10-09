@@ -4,6 +4,8 @@ const path = require('path');
 const ejs = require('ejs');
 const _fs = Promise.promisifyAll(fs);
 
+'use strict';
+
 const BUILD_DIR = `${process.cwd()}/dist`;
 const SRC_DIR = `${process.cwd()}/src`;
 const CONTENT_DIR = `${SRC_DIR}/content`;
@@ -34,7 +36,7 @@ const chain = (value) => {
      * @param {Function<any>} cb A callback receiving the current data. Should return the modified data.
      * @return {Chain} A reference to the current chain.
      */
-    add(cb) {
+    map(cb) {
       data = cb(data);
       return this;
     },
@@ -87,6 +89,7 @@ const readFilesInDir = async (dir, modifier = NOOP, ext = '') => {
   }
 };
 
+// Adds an ID slug to each project based on the title
 const addProjectSlugs = (data) => {
   const { projects } = data;
   return Object.assign({}, data, {
@@ -98,6 +101,7 @@ const addProjectSlugs = (data) => {
   });
 };
 
+// Removes all projects with the `hidden` prop
 const removeHiddenProjects = (data) => {
   const { projects } = data;
   const filteredProjects = projects.filter(project => !project.hidden);
@@ -136,9 +140,9 @@ const buildContent = async () => {
     // chain will call each function passed in with a snapshot of the current
     // state of the data (the result of the previous .add)
     return chain(data)
-      .add(removeHiddenProjects)
-      .add(getWithProjectFilters)
-      .add(addProjectSlugs)
+      .map(removeHiddenProjects)
+      .map(getWithProjectFilters)
+      .map(addProjectSlugs)
       .commit();
   } catch (e) {
     console.error(`There was an error building content.`, e);
@@ -146,16 +150,16 @@ const buildContent = async () => {
   }
 };
 
-const main = async () => {
+const main = (async () => {
   const data = await buildContent();
   await ejs.renderFile(`${SRC_DIR}/index.ejs`, data, async (err, str) => {
-    await _fs.writeFileAsync(`${BUILD_DIR}/index.html`, str, 'utf8')
-      .then(() => console.log('File successfully written at', `${BUILD_DIR}/index.html`))
-      .catch(e => console.error('ERROR:', e));
-    await _fs.writeFileAsync(`${SRC_DIR}/.content.json`, JSON.stringify(data, null, 2), 'utf8')
-      .then(() => console.log(`Exported data to`, `${SRC_DIR}/.content.json`))
-      .catch(e => console.error('ERROR:', e));
+    await Promise.all([
+      _fs.writeFileAsync(`${BUILD_DIR}/index.html`, str, 'utf8')
+        .then(() => console.log('File successfully written at', `${BUILD_DIR}/index.html`))
+        .catch(e => console.error('ERROR:', e)),
+      _fs.writeFileAsync(`${SRC_DIR}/.content.json`, JSON.stringify(data, null, 2), 'utf8')
+        .then(() => console.log(`Exported data to`, `${SRC_DIR}/.content.json`))
+        .catch(e => console.error('ERROR:', e))
+    ]);
   });
-};
-
-main();
+})();

@@ -4,6 +4,9 @@ SOURCE_DIR := src
 SCRIPTS_DIR := scripts
 BUILD_DIR := dist
 DEPLOY_DIR := docs
+MODULES_DIR := node_modules/.bin
+
+# Tasks
 
 .PHONY: clean
 clean:
@@ -11,7 +14,7 @@ clean:
 
 .PHONY: build-js
 build-js:
-	yarn run build:js
+	$(MODULES_DIR)/rollup -c
 
 .PHONY: build-templates
 build-templates:
@@ -19,7 +22,7 @@ build-templates:
 
 .PHONY: build-styles
 build-styles:
-	yarn run build:sass
+	$(MODULES_DIR)/node-sass ./src/scss/main.scss ./dist/css/styles.css
 
 .PHONY: optimize-png
 optimize-png:
@@ -37,12 +40,12 @@ build:
 deploy:
 	make build && cp -R ./$(BUILD_DIR)/* ./$(DEPLOY_DIR) && echo "Copied files to $(DEPLOY_DIR)."
 
-#"watchman-make -p '$(SOURCE_DIR)/js/*.js' -t build-js"
+# Use rollup for watching the JS as it uses cacheing for faster build times
 .PHONY: start-dev
 start-dev:
 	parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 3000" \
-		"yarn run watch:js" \
+		"$(MODULES_DIR)/rollup -c -w" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' '$(SOURCE_DIR)/content/*.json' -t build-templates" \
 		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png"

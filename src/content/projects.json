@@ -1,34 +1,6 @@
 {
   "projects": [
     {
-      "hidden": true,
-      "type": "Games",
-      "title": "AngryBirds 2 AR Ad",
-      "platform": "iOS, Android",
-      "brief": "Unity Ads WebAR Advertisement bringing the AngryBirds 2 world to AR",
-      "employer": {
-        "name": "Unity Technologies",
-        "uri": "https://unity3d.com"
-      },
-      "thumbnail": "assets/ab2_thumbnail.png",
-      "role": "Tooling Developer",
-      "tasks": [
-        "Build pipeline and workflow creation",
-        "Asset pipeline creation and runtime asset management",
-        "Project architecture",
-        "Plane detection implementation",
-        "Tutorial hand implementation",
-        "Point system implementation"
-      ],
-      "tech": [
-        "three.js",
-        "rollup.js",
-        "node.js",
-        "Flowtype"
-      ],
-      "duration": "3 weeks"
-    },
-    {
       "type": "Games",
       "title": "DuckTales Vault Portal AR Ad",
       "platform": "iOS, Android",

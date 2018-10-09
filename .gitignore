@@ -5,6 +5,9 @@ node_modules/*
 dist/*
 src/.content.json
 
+# random
+hidden
+
 # osx
 .DS_Store
 ._*
