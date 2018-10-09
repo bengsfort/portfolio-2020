@@ -100,19 +100,6 @@
       "duration": "4 months"
     },
     {
-      "hidden": true,
-      "title": "i won't remember these 🤷‍♂️",
-      "tasks": [
-        "Foundational UI components development",
-        "Visual polish",
-        "Challenge feature UI",
-        "Tournaments UI",
-        "Play Now view UI",
-        "Modals UI",
-        "Challenge Overlay implementation"
-      ]
-    },
-    {
       "type": "Apps",
       "title": "Unity Social",
       "platform": "iOS, Android",
