@@ -5,6 +5,7 @@ const ACTIVE_CLASS = 'active';
 const projects = {};
 let activeProject = null;
 
+// Sets the given project page to active.
 export const openProject = (id) => {
   closeProject();
   activeProject = projects[id];
@@ -12,6 +13,7 @@ export const openProject = (id) => {
   document.body.style.overflow = 'hidden';
 }
 
+// Closes all active projects, if any.
 export const closeProject = () => {
   if (activeProject) {
     activeProject.classList.remove(ACTIVE_CLASS);
@@ -20,18 +22,21 @@ export const closeProject = () => {
   }
 }
 
+// Main project navigation function.
 const projectNav = () => {
   const projs = document.getElementsByClassName('project-page');
   const count = projs.length;
-  for (let i = 0, project, slug, closeBtn; i < count; i++) {
+  
+  // Iterates through all projects and adds them to the project cache
+  for (let i = 0, project, slug; i < count; i++) {
     project = projs[i];
     slug = project.id;
     projects[slug] = project;
     // Find close button
-    closeBtn = project.getElementsByClassName('project-close-btn')[0];
+    const closeBtn = project.getElementsByClassName('project-close-btn')[0];
     if (closeBtn) {
       closeBtn.addEventListener('click', closeProject);
-    }    
+    }
   }
 };
 

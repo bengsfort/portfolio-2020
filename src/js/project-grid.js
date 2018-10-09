@@ -1,18 +1,8 @@
 'use strict';
 
-/**
- * @typedef GridItem
- * @property {number} top
- * @property {number} left
- * @property {number} height
- * @property {number} width
- */
-
 let grid = [];
 
-/**
- * @param {HTMLCollectionOf[HTMLElement]} items 
- */
+// Caches the positions (relative to the parent) of a list of items.
 export const cacheGridLocations = (items) => {
   grid = []; // reset the grid
   const itemCount = items.length;
@@ -28,11 +18,7 @@ export const cacheGridLocations = (items) => {
   }
 };
 
-/**
- * 
- * @param {HTMLElement} item 
- * @param {number} index 
- */
+// Sets a given item to the grid position at the given index.
 export const setGridItemPosition = (item, index) => {
   const position = grid[index];
   item.style.position = 'absolute';

@@ -46,7 +46,7 @@ const cacheProjects = () => {
   }
 };
 
-
+// Sets the current project
 const onClickProject = (proj) => {
   const href = proj.href;
   const pathComponents = href.split('/');
@@ -75,6 +75,7 @@ const onFilterChanged = (ev) => {
   });
 };
 
+// Main setup function
 const projectFilter = () => {
   cacheProjects();
   // Setup event handlers
