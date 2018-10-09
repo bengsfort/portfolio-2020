@@ -1,19 +1,9 @@
 (function () {
   'use strict';
 
-  /**
-   * @typedef GridItem
-   * @property {number} top
-   * @property {number} left
-   * @property {number} height
-   * @property {number} width
-   */
-
   let grid = [];
 
-  /**
-   * @param {HTMLCollectionOf[HTMLElement]} items 
-   */
+  // Caches the positions (relative to the parent) of a list of items.
   const cacheGridLocations = (items) => {
     grid = []; // reset the grid
     const itemCount = items.length;
@@ -29,11 +19,7 @@
     }
   };
 
-  /**
-   * 
-   * @param {HTMLElement} item 
-   * @param {number} index 
-   */
+  // Sets a given item to the grid position at the given index.
   const setGridItemPosition = (item, index) => {
     const position = grid[index];
     item.style.position = 'absolute';
@@ -48,6 +34,7 @@
   const projects = {};
   let activeProject = null;
 
+  // Sets the given project page to active.
   const openProject = (id) => {
     closeProject();
     activeProject = projects[id];
@@ -55,6 +42,7 @@
     document.body.style.overflow = 'hidden';
   };
 
+  // Closes all active projects, if any.
   const closeProject = () => {
     if (activeProject) {
       activeProject.classList.remove(ACTIVE_CLASS);
@@ -63,18 +51,21 @@
     }
   };
 
+  // Main project navigation function.
   const projectNav = () => {
     const projs = document.getElementsByClassName('project-page');
     const count = projs.length;
-    for (let i = 0, project, slug, closeBtn; i < count; i++) {
+    
+    // Iterates through all projects and adds them to the project cache
+    for (let i = 0, project, slug; i < count; i++) {
       project = projs[i];
       slug = project.id;
       projects[slug] = project;
       // Find close button
-      closeBtn = project.getElementsByClassName('project-close-btn')[0];
+      const closeBtn = project.getElementsByClassName('project-close-btn')[0];
       if (closeBtn) {
         closeBtn.addEventListener('click', closeProject);
-      }    
+      }
     }
   };
 
@@ -128,7 +119,7 @@
     }
   };
 
-
+  // Sets the current project
   const onClickProject = (proj) => {
     const href = proj.href;
     const pathComponents = href.split('/');
@@ -157,6 +148,7 @@
     });
   };
 
+  // Main setup function
   const projectFilter = () => {
     cacheProjects();
     // Setup event handlers
