@@ -24,6 +24,10 @@ build-templates:
 build-styles:
 	$(MODULES_DIR)/node-sass ./src/scss/main.scss ./dist/css/styles.css
 
+.PHONY: copy-assets
+copy-assets:
+	cp -R $(SOURCE_DIR)/assets/*.mp4 $(BUILD_DIR)/assets && echo "Copied assets."
+
 .PHONY: optimize-png
 optimize-png:
 	node $(SCRIPTS_DIR)/optimize-images.js
@@ -34,6 +38,7 @@ build:
 		"make build-styles" \
 		"make build-templates" \
 		"make optimize-png" \
+		"make copy-assets" \
 		"make build-js"
 
 .PHONY: deploy
@@ -43,9 +48,10 @@ deploy:
 # Use rollup for watching the JS as it uses cacheing for faster build times
 .PHONY: start-dev
 start-dev:
-	parallel --tty --jobs 0 ::: \
+	make build && parallel --tty --jobs 0 ::: \
 		"cd $(BUILD_DIR) && python -m SimpleHTTPServer 3000" \
 		"$(MODULES_DIR)/rollup -c -w" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.scss' -t build-styles" \
 		"watchman-make -p '$(SOURCE_DIR)/**/*.ejs' '$(SOURCE_DIR)/content/*.json' -t build-templates" \
-		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png"
+		"watchman-make -p '$(SOURCE_DIR)/assets/*.png' -t optimize-png" \
+		"watchman-make -p '$(SOURCE_DIR)/assets/*.mp4' -t copy-assets"

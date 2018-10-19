@@ -10,6 +10,10 @@
         "uri": "https://unity3d.com"
       },
       "thumbnail": "assets/ducktales_thumbnail.png",
+      "preview": {
+        "video": "assets/ducktales.mp4",
+        "device": "phone-portrait"
+      },
       "role": "Lead developer",
       "tasks": [
         "Build pipeline and workflow creation",

@@ -1,0 +1,67 @@
+// project-demo styles
+
+.project-demo {
+	margin: 0 0 2.5rem;
+}
+
+.demo-wrapper {
+	$phone-top-padding: 4.5rem;
+	$phone-bottom-padding: 6rem;
+	$phone-speaker-width: 4rem;
+	$phone-speaker-height: 0.5rem;
+	$phone-button-size: 4rem;
+
+	position: relative;
+	width: 100%;
+
+	.demo-inner {
+		position: relative;
+		width: 100%;
+
+		img, video {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	&.phone-portrait {
+		padding: $phone-top-padding 1.5rem $phone-bottom-padding;
+		border-radius: 2.5rem;
+		border: 0.25rem solid;
+		border-bottom-color: #d0d0d0;
+		border-right-color: #d0d0d0;
+		border-top-color: #f0f0f0;
+		border-left-color: #f0f0f0;
+		background: #e0e0e0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: ($phone-top-padding / 2) - ($phone-speaker-height / 2);
+			left: 50%;
+			width: $phone-speaker-width;
+			height: $phone-speaker-height;
+			margin-left: -$phone-speaker-width / 2;
+			border-radius: $phone-speaker-width / 2;
+			background: #fff;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: ($phone-bottom-padding / 2) - ($phone-button-size / 2);
+			left: 50%;
+			width: $phone-button-size;
+			height: $phone-button-size;
+			margin-left: -$phone-button-size / 2;
+			border-radius: $phone-button-size / 2;
+			background: #fff;
+		}
+
+		.demo-inner {
+			padding-bottom: 100% * (16 / 9);
+		}
+	}
+}
