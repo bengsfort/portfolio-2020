@@ -40,6 +40,10 @@
         "uri": "https://unity3d.com"
       },
       "thumbnail": "assets/webvision_thumbnail.png",
+      "preview": {
+        "video": "assets/vision.mp4",
+        "device": "phone-portrait"
+      },
       "role": "Full-stack developer",
       "tasks": [
         "Design and implement specification",

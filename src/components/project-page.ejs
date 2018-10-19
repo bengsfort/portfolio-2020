@@ -10,12 +10,12 @@
     <p class="project-brief lead"><%= project.brief %></p>
   </header>
   <div class="row">
-    <div class="project-demo col-sm-6">
+    <div class="project-demo col-sm-4">
       <% if (project.preview) { %>
         <%- include('./project-demo.ejs', { demo: project.preview }) %>
       <% } %>
     </div>
-    <div class="project-info col-sm-6">
+    <div class="project-info col-sm-8">
       <div class="project-meta">
         <div class="project-platform"><%= project.platform %></div>
         <div class="project-employer"><span>Built for</span> <a href="<%- project.employer.uri %>" target="_blank"><%= project.employer.name %></a></div>

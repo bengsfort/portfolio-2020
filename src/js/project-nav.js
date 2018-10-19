@@ -3,6 +3,7 @@
 const ACTIVE_CLASS = 'active';
 
 const projects = {};
+let activeVideo = null;
 let activeProject = null;
 
 // Sets the given project page to active.
@@ -10,6 +11,10 @@ export const openProject = (id) => {
   closeProject();
   activeProject = projects[id];
   activeProject.classList.add(ACTIVE_CLASS);
+  activeVideo = activeProject.getElementsByClassName('demo-video')[0];
+  if (activeVideo) {
+    activeVideo.play();
+  }
   document.body.style.overflow = 'hidden';
 }
 
@@ -17,6 +22,11 @@ export const openProject = (id) => {
 export const closeProject = () => {
   if (activeProject) {
     activeProject.classList.remove(ACTIVE_CLASS);
+    activeVideo = activeProject.getElementsByClassName('demo-video')[0];
+    if (activeVideo) {
+      activeVideo.pause();
+      activeVideo = null;
+    }
     activeProject = null;
     document.body.style.overflow = 'inherit';
   }
