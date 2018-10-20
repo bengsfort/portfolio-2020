@@ -51,7 +51,12 @@ const onClickProject = (proj) => {
   const href = proj.href;
   const pathComponents = href.split('/');
   const path = pathComponents[pathComponents.length - 1];
-  const id = path.slice('#project-'.length);
+  const filePos = path.indexOf('.html');
+  let id = '';
+  if (filePos > -1) {
+    id = path.slice(filePos + 5); // +5 for '.html'
+  }
+  id = id.slice('#project-'.length);
   openProject(id);
 };
 
