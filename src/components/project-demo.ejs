@@ -1,11 +1,13 @@
 <% if (demo.video) { %>
 <div class="demo-wrapper <%= demo.device %>">
 	<!-- poster=project.feature + ".png" -->
-	<div class="demo-inner">
-		<video class="demo-video" loop="loop">
-			<source type="video/mp4" src="<%- demo.video %>" />
-		</video>
-	</div>
+		<div class="demo-screen-wrapper">
+			<div class="demo-inner">
+				<video class="demo-video" loop="loop">
+					<source type="video/mp4" src="<%- demo.video %>" />
+				</video>
+			</div>
+		</div>
 	<!-- img.project-image(alt=project.title, src=project.feature + ".png") -->
 </div>
 <% } %>

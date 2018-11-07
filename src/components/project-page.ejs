@@ -1,24 +1,35 @@
 <div class="container">
+  <button class="project-close-btn">
+    <i class="material-icons icon">arrow_forward</i>
+    <span class="label">close</span>
+  </button>
   <header>
-    <button class="project-close-btn">
-      <i class="material-icons icon">arrow_forward</i>
-      <span class="label">close</span>
-    </button>
     <div class="project-head">Portfolio</div>
-    <h3 class="project-title"><%= project.title %></h3>
-    <p class="project-role lead"><%= project.role %></p>
-    <p class="project-brief lead"><%= project.brief %></p>
   </header>
   <div class="row">
-    <div class="project-demo col-sm-4">
+    <%
+      var demoCols = 4;
+      var infoCols = 8;
+      if (project.preview) {
+        var isComputer = project.preview.device === 'computer';
+        demoCols = isComputer ? 5 : 4;
+        infoCols = isComputer ? 7 : 8;
+      }
+    %>
+    <div class="project-demo col-sm-<%= demoCols %>">
       <% if (project.preview) { %>
         <%- include('./project-demo.ejs', { demo: project.preview }) %>
       <% } %>
     </div>
-    <div class="project-info col-sm-8">
+    <div class="project-info col-sm-<%= infoCols %>">
+      <h3 class="project-title"><%= project.title %></h3>
+      <p class="project-role lead"><%= project.role %></p>
+      <p class="project-brief lead"><%= project.brief %></p>
       <div class="project-meta">
         <div class="project-platform"><%= project.platform %></div>
-        <div class="project-employer"><span>Built for</span> <a href="<%- project.employer.uri %>" target="_blank"><%= project.employer.name %></a></div>
+        <% if (project.employer) { %>
+          <div class="project-employer"><span>Built for</span> <a href="<%- project.employer.uri %>" target="_blank"><%= project.employer.name %></a></div>
+        <% } %>
         <div class="project-platform"><span>Duration:</span> <%= project.duration %></div>
       </div>
       <div class="project-tasks">
