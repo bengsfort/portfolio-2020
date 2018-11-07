@@ -51,10 +51,10 @@ const onClickProject = (proj) => {
   const href = proj.href;
   const pathComponents = href.split('/');
   const path = pathComponents[pathComponents.length - 1];
-  const filePos = path.indexOf('.html');
+  const filePos = path.indexOf('#project-');
   let id = path;
   if (filePos > -1) {
-    id = path.slice(filePos + 5); // +5 for '.html'
+    id = path.slice(filePos); // +5 for '.html'
   }
   id = id.slice('#project-'.length);
   openProject(id);
