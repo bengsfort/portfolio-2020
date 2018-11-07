@@ -2,6 +2,30 @@
   "projects": [
     {
       "type": "Games",
+      "title": "Umpicado",
+      "platform": "Web",
+      "brief": "Pizza Jam 4 submission, anti-speedrun game. Theme: Choose one of the 7 deadly sins. Sin chosen: Sloth",
+      "thumbnail": "assets/umpicado_thumbnail.png",
+      "preview": {
+        "video": "assets/umpicado.mp4",
+        "device": "computer"
+      },
+      "role": "Programmer, Artist, Animator",
+      "tasks": [
+        "All animations",
+        "Main character pixel art",
+        "Gameplay and intro pixel art",
+        "Gameplay code"
+      ],
+      "tech": [
+        "Unity",
+        "C#",
+        "Aseprite"
+      ],
+      "duration": "48 hours"
+    },
+    {
+      "type": "Games",
       "title": "DuckTales Vault Portal AR Ad",
       "platform": "iOS, Android",
       "brief": "First ever Unity Ads WebAR Advertisement allowing the player to explore Scrooge's vault",
