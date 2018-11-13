@@ -113,7 +113,11 @@
         "name": "Unity Technologies",
         "uri": "https://unity3d.com"
       },
-      "thumbnail": "assets/adsshowcase_thumbnail.png",
+      "preview": {
+        "device": "phone-portrait",
+        "video": "assets/arads.mp4"
+      },
+      "thumbnail": "assets/arads_thumbnail.png",
       "role": "Full-stack developer, lead front-end developer",
       "tasks": [
         "Assist in implementation of native side of WebAR bridge",
