@@ -17,7 +17,7 @@
     "imagemin": "^6.0.0",
     "imagemin-pngcrush": "^5.1.0",
     "imagemin-pngquant": "^6.0.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "rollup": "^0.66.2"
   },
   "dependencies": {}
